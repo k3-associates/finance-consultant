@@ -94,6 +94,44 @@
         #contact { padding: 3rem 0; background-color: #2c3e50; color: white; text-align: center; }
         .contact-info { margin-top: 20px; font-size: 1.1rem; }
         
+        /* Tabs (Clients) */
+        .tabs {
+            margin-top: 20px;
+        }
+        .tab-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .tab-button {
+            border: 1px solid #2c3e50;
+            background-color: #fff;
+            color: #2c3e50;
+            padding: 8px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .tab-button.active {
+            background-color: #2c3e50;
+            color: #fff;
+        }
+        .tab-panel {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 6px;
+            background-color: #f8f9fa;
+            box-shadow: 0 0 6px rgba(0,0,0,0.05);
+            text-align: center;
+            font-size: 1rem;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -192,14 +230,36 @@
     <section id="clients">
         <div class="container">
             <h2 style="text-align: center;">Key Clients</h2>
-            <ul>
-                <li><strong>HBK Security Services Pvt. Ltd.</strong></li>
-                <li><strong>M/s Empower Pragati Vocational and Staffing Pvt. Ltd.</strong></li>
-                <li><strong>M/s Sonu Exim Pvt. Ltd.</strong></li>
-                <li><strong>M/s G - Line Creations</strong></li>
-                <li><strong>M/s Furniture Design & Interior</strong></li>
-                <li><strong>M/s S. Mishra &amp; Co.</strong></li>
-            </ul>
+            <div class="tabs">
+                <div class="tab-list">
+                    <button class="tab-button active" data-tab="client1">HBK Security Services Pvt. Ltd.</button>
+                    <button class="tab-button" data-tab="client2">M/s Empower Pragati Vocational and Staffing Pvt. Ltd.</button>
+                    <button class="tab-button" data-tab="client3">M/s Sonu Exim Pvt. Ltd.</button>
+                    <button class="tab-button" data-tab="client4">M/s G - Line Creations</button>
+                    <button class="tab-button" data-tab="client5">M/s Furniture Design & Interior</button>
+                    <button class="tab-button" data-tab="client6">M/s S. Mishra &amp; Co.</button>
+                </div>
+                <div class="tab-panels">
+                    <div class="tab-panel active" id="client1">
+                        <h3>HBK Security Services Pvt. Ltd.</h3>
+                    </div>
+                    <div class="tab-panel" id="client2">
+                        <h3>M/s Empower Pragati Vocational and Staffing Pvt. Ltd.</h3>
+                    </div>
+                    <div class="tab-panel" id="client3">
+                        <h3>M/s Sonu Exim Pvt. Ltd.</h3>
+                    </div>
+                    <div class="tab-panel" id="client4">
+                        <h3>M/s G - Line Creations</h3>
+                    </div>
+                    <div class="tab-panel" id="client5">
+                        <h3>M/s Furniture Design & Interior</h3>
+                    </div>
+                    <div class="tab-panel" id="client6">
+                        <h3>M/s S. Mishra &amp; Co.</h3>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -218,6 +278,35 @@
     <footer>
         <p>K3Associates &copy; 2026. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        // Simple tab interaction for clients section
+        (function () {
+            var buttons = document.querySelectorAll('.tab-button');
+            var panels = document.querySelectorAll('.tab-panel');
+
+            if (!buttons.length || !panels.length) return;
+
+            buttons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var targetId = btn.getAttribute('data-tab');
+
+                    // Update button states
+                    buttons.forEach(function (b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+
+                    // Update panels
+                    panels.forEach(function (panel) {
+                        if (panel.id === targetId) {
+                            panel.classList.add('active');
+                        } else {
+                            panel.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
 
 </body>
 </html>
