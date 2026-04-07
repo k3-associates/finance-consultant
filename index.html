@@ -146,20 +146,6 @@
             background-color: #2c3e50;
             color: #fff;
         }
-        .tab-panel {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 6px;
-            background-color: #f8f9fa;
-            box-shadow: 0 0 6px rgba(0,0,0,0.05);
-            text-align: center;
-            font-size: 1rem;
-        }
-        .tab-panel.active {
-            display: block;
-        }
-
         /* Footer */
         footer {
             text-align: center;
@@ -205,9 +191,9 @@
             <h2 style="text-align: center;">About The Principal Consultant</h2>
             <div class="profile-card">
                 <h3>Balram Prasad Shrivastava</h3>
-                <p><strong>Senior Accountant & Consultant</strong></p>
+                <p><strong> Finance Manager & Tax Consultant</strong></p>
                 <p>With over <strong>25 years of professional experience</strong> in finance and administration, K3Associates offers reliable expertise in project accounting, auditing, and compliance.</p>
-                <p>Formerly associated with recognized organizations like HBK Security Services and Empower Pragati Vocational, Balram Prasad Shrivastava brings a wealth of knowledge in managing complex financial records and statutory compliance.</p>
+                <p>Formerly associated with recognized organizations, Balram Prasad Shrivastava brings a wealth of knowledge in managing complex financialrecords and statutory compliance. He utilizes his extensive experience in accounting and finance to contribute effectively to growth of your business.</p>
             </div>
         </div>
     </section>
@@ -230,8 +216,12 @@
 
                 <div class="service-box">
                     <div class="service-icon icon-insurance">&#128737;</div>
-                    <h3>Insurance Assistance</h3>
-                    <p>Guidance on selecting the right insurance products and assistance with documentation and claims.</p>
+                    <h3>Insurance Services</h3>
+                    <p>Support for policy selection, onboarding, and claim guidance for:</p>
+                    <ul style="text-align: left; margin-top: 10px;">
+                        <li>Max Life Insurance</li>
+                        <li>Niva Bupa Health Insurance</li>
+                    </ul>
                 </div>
 
                 <div class="service-box">
@@ -266,32 +256,12 @@
             <h2 style="text-align: center;">Key Clients</h2>
             <div class="tabs">
                 <div class="tab-list">
-                    <button class="tab-button active" data-tab="client1">HBK Security Services Pvt. Ltd.</button>
-                    <button class="tab-button" data-tab="client2">M/s Empower Pragati Vocational and Staffing Pvt. Ltd.</button>
-                    <button class="tab-button" data-tab="client3">M/s Sonu Exim Pvt. Ltd.</button>
-                    <button class="tab-button" data-tab="client4">M/s G - Line Creations</button>
-                    <button class="tab-button" data-tab="client5">M/s Furniture Design & Interior</button>
-                    <button class="tab-button" data-tab="client6">M/s S. Mishra &amp; Co.</button>
-                </div>
-                <div class="tab-panels">
-                    <div class="tab-panel active" id="client1">
-                        <h3>HBK Security Services Pvt. Ltd.</h3>
-                    </div>
-                    <div class="tab-panel" id="client2">
-                        <h3>M/s Empower Pragati Vocational and Staffing Pvt. Ltd.</h3>
-                    </div>
-                    <div class="tab-panel" id="client3">
-                        <h3>M/s Sonu Exim Pvt. Ltd.</h3>
-                    </div>
-                    <div class="tab-panel" id="client4">
-                        <h3>M/s G - Line Creations</h3>
-                    </div>
-                    <div class="tab-panel" id="client5">
-                        <h3>M/s Furniture Design & Interior</h3>
-                    </div>
-                    <div class="tab-panel" id="client6">
-                        <h3>M/s S. Mishra &amp; Co.</h3>
-                    </div>
+                    <button class="tab-button active" data-tab="client1">M/s Empower Pragati Vocational and Staffing Pvt. Ltd.</button>
+                    <button class="tab-button" data-tab="client2">M/s Sonu Exim Pvt. Ltd.</button>
+                    <button class="tab-button" data-tab="client3">M/s G - Line Creations</button>
+                    <button class="tab-button" data-tab="client4">M/s Furniture Design & Interior</button>
+                    <button class="tab-button" data-tab="client5">M/s S. Mishra &amp; Co.</button>
+                    <button class="tab-button" data-tab="client6">HBK Security Services Pvt. Ltd.</button>
                 </div>
             </div>
         </div>
@@ -304,7 +274,7 @@
             <div class="contact-info">
                 <p><strong>Phone:</strong> +91-9560062859</p>
                 <p><strong>Email:</strong> balram_shrivastava@yahoo.com</p>
-                <p><strong>Address:</strong> 2/163, A-2, Sec-2, Rajender Nagar, Ghaziabad, (U.P)</p>
+                <p><strong>Shop No. 26, Ground Floor, Plot No 74-75, Mahalaxmi Plaza, Sector-5, Rajender Nagar, Sahibabad, Ghaziabad, (U.P), UP - 201005</p>
             </div>
         </div>
     </section>
@@ -317,26 +287,13 @@
         // Simple tab interaction for clients section
         (function () {
             var buttons = document.querySelectorAll('.tab-button');
-            var panels = document.querySelectorAll('.tab-panel');
-
-            if (!buttons.length || !panels.length) return;
+            if (!buttons.length) return;
 
             buttons.forEach(function (btn) {
                 btn.addEventListener('click', function () {
-                    var targetId = btn.getAttribute('data-tab');
-
                     // Update button states
                     buttons.forEach(function (b) { b.classList.remove('active'); });
                     btn.classList.add('active');
-
-                    // Update panels
-                    panels.forEach(function (panel) {
-                        if (panel.id === targetId) {
-                            panel.classList.add('active');
-                        } else {
-                            panel.classList.remove('active');
-                        }
-                    });
                 });
             });
         })();
